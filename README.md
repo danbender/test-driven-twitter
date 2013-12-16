@@ -1,8 +1,8 @@
 Test-Driven Twitter
 ===================
-TDD of a micro-blogging site like Twitter. User authentication and user authentication from scratch.
+TDD of a micro-blogging site like Twitter. User authorization and user authentication are built from scratch.
 
-View it here: https://github.com/danbender/3D-star-wars-typeracer.git
+View it here: [website]
 
 
 
