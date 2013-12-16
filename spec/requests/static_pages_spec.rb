@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe 'StaticPages' do
 
+  let(:base_title) { 'TDD Twitter |'}
+
   describe 'Home' do
     before(:each) { visit '/static_pages/home' }
 
@@ -9,7 +11,7 @@ describe 'StaticPages' do
       expect(page).to have_content('Welcome')
     end
     it "should have a title" do
-      expect(page).to have_title('TDD Twitter | Home')
+      expect(page).to have_title("#{base_title} Home")
     end
   end
 
@@ -20,7 +22,7 @@ describe 'StaticPages' do
       expect(page).to have_content('Find Help here')
     end
     it "should have a title" do
-      expect(page).to have_title('TDD Twitter | Help')
+      expect(page).to have_title("#{base_title} Help")
     end
   end
 
@@ -31,7 +33,19 @@ describe 'StaticPages' do
       expect(page).to have_content('About')
     end
     it "should have a title" do
-      expect(page).to have_title('TDD Twitter | About')
+      expect(page).to have_title("#{base_title} About")
+    end
+  end
+
+  describe 'Contact' do
+    before(:each) { visit '/static_pages/contact'}
+
+    it "should have the content 'Contact us'" do
+      expect(page).to have_content 'Contact us'
+    end
+
+    it 'should have a title' do
+      expect(page).to have_title("#{base_title} Contact")
     end
   end
 
