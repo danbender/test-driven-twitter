@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 describe 'StaticPages' do
-  # possible refactor?
-  # before(:each) { visit '/static_pages' }
+
   describe 'Home' do
-  # before(:each) { visit '/home' }
     before(:each) { visit '/static_pages/home' }
 
     it "should have the content 'Welcome'" do
