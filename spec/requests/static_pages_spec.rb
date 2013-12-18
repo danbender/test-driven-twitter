@@ -3,7 +3,6 @@ require 'spec_helper'
 describe 'StaticPages' do
 
   let(:base_title) { 'TDD Twitter'}
-
   describe 'Home' do
     before(:each) { visit '/static_pages/home' }
 
