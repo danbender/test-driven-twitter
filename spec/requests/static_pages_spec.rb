@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'StaticPages' do
-
   subject { page }
 
   describe 'Home' do
@@ -19,13 +18,13 @@ describe 'StaticPages' do
 
   describe 'About' do
     before(:each) { visit about_path }
-    it { should have_content('About') }
+    it { should have_selector('h1', text: 'About') }
     it { should have_title(full_title('About')) }
   end
 
   describe 'Contact' do
     before(:each) { visit contact_path  }
-    it { should have_content('Contact us') }
+    it { should have_selector('h1', text: 'Contact us') }
     it { should have_title(full_title('Contact')) }
   end
 end
