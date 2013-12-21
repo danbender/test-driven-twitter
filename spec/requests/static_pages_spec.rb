@@ -18,7 +18,7 @@ describe 'StaticPages' do
   end
 
   describe 'Help' do
-    before(:each) { visit '/static_pages/help' }
+    before(:each) { visit static_pages_help_path }
 
     it "should have the content 'Find Help here'" do
       expect(page).to have_content('Find Help here')
@@ -29,7 +29,7 @@ describe 'StaticPages' do
   end
 
   describe 'About' do
-    before(:each) { visit '/static_pages/about' }
+    before(:each) { visit static_pages_about_path }
 
     it "should have the content 'About'" do
       expect(page).to have_content('About')
@@ -40,7 +40,7 @@ describe 'StaticPages' do
   end
 
   describe 'Contact' do
-    before(:each) { visit '/static_pages/contact'}
+    before(:each) { visit static_pages_contact_path }
 
     it "should have the content 'Contact us'" do
       expect(page).to have_content 'Contact us'
