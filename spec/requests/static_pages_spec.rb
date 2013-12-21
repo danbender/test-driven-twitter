@@ -1,54 +1,33 @@
 require 'spec_helper'
 
 describe 'StaticPages' do
+  subject { page }
 
   let(:base_title) { 'TDD Twitter'}
+
   describe 'Home' do
     before(:each) { visit '/' }
-
-    it "should have the content 'Welcome'" do
-      expect(page).to have_content('Welcome')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title}")
-    end
-    it "should not have the custom page title" do
-      expect(page).to_not have_title(" | Home")
-    end
+    it { should have_content('Welcome') }
+    it { should have_title("#{base_title}") }
+    it { should_not have_title(" | Home") }
   end
 
   describe 'Help' do
     before(:each) { visit '/help' }
-
-    it "should have the content 'Find Help here'" do
-      expect(page).to have_content('Find Help here')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title} | Help")
-    end
+    it { should have_content('Find Help here') }
+    it { should have_title("#{base_title} | Help") }
   end
 
   describe 'About' do
     before(:each) { visit '/about' }
-
-    it "should have the content 'About'" do
-      expect(page).to have_content('About')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title} | About")
-    end
+    it { should have_content('About') }
+    it { should have_title("#{base_title} | About") }
   end
 
   describe 'Contact' do
     before(:each) { visit '/contact' }
-
-    it "should have the content 'Contact us'" do
-      expect(page).to have_content 'Contact us'
-    end
-
-    it 'should have a title' do
-      expect(page).to have_title("#{base_title} | Contact")
-    end
+    it { should have_content('Contact us') }
+    it { should have_title("#{base_title} | Contact") }
   end
 
 end
