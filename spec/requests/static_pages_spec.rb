@@ -4,7 +4,7 @@ describe 'StaticPages' do
 
   let(:base_title) { 'TDD Twitter'}
   describe 'Home' do
-    before(:each) { visit '/static_pages/home' }
+    before(:each) { visit '/' }
 
     it "should have the content 'Welcome'" do
       expect(page).to have_content('Welcome')
@@ -18,7 +18,7 @@ describe 'StaticPages' do
   end
 
   describe 'Help' do
-    before(:each) { visit '/static_pages/help' }
+    before(:each) { visit '/help' }
 
     it "should have the content 'Find Help here'" do
       expect(page).to have_content('Find Help here')
@@ -29,7 +29,7 @@ describe 'StaticPages' do
   end
 
   describe 'About' do
-    before(:each) { visit '/static_pages/about' }
+    before(:each) { visit '/about' }
 
     it "should have the content 'About'" do
       expect(page).to have_content('About')
@@ -40,7 +40,7 @@ describe 'StaticPages' do
   end
 
   describe 'Contact' do
-    before(:each) { visit '/static_pages/contact'}
+    before(:each) { visit '/contact' }
 
     it "should have the content 'Contact us'" do
       expect(page).to have_content 'Contact us'

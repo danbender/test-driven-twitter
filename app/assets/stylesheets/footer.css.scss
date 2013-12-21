@@ -3,22 +3,22 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #cecece;
   color: #999;
+
+  a {
+    color: #282828;
+    &:hover {
+      color: #222;
+    }
+  }
 }
 
-footer a {
-  color: #282828;
-}
-
-footer a:hover {
-  color: #222;
-}
 
 footer ul {
   float: right;
   list-style: none;
-}
 
-footer ul li {
-  float: left;
-  margin-left: 20px;
+  li {
+    float: left;
+    margin-left: 20px;
+  }
 }
