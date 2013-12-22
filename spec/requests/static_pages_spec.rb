@@ -1,54 +1,57 @@
 require 'spec_helper'
 
 describe 'StaticPages' do
+  subject { page }
 
-  let(:base_title) { 'TDD Twitter'}
+  shared_examples_for 'all static pages' do
+    it { should have_selector('h1', text: heading) }
+    it { should have_title(page_title)}
+  end
+
   describe 'Home' do
-    before(:each) { visit '/' }
+    before(:each)     { visit root_path }
+    let(:heading)     { 'Welcome' }
+    let(:page_title)  { '' }
 
-    it "should have the content 'Welcome'" do
-      expect(page).to have_content('Welcome')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title}")
-    end
-    it "should not have the custom page title" do
-      expect(page).to_not have_title(" | Home")
-    end
+    it_should_behave_like 'all static pages'
+    it { should_not have_title(" | Home") }
   end
 
   describe 'Help' do
-    before(:each) { visit '/help' }
+    before(:each)     { visit help_path }
+    let(:heading)     { 'Find Help here' }
+    let(:page_title)  { 'Help' }
 
-    it "should have the content 'Find Help here'" do
-      expect(page).to have_content('Find Help here')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title} | Help")
-    end
+    it_should_behave_like 'all static pages'
   end
 
   describe 'About' do
-    before(:each) { visit '/about' }
+    before(:each)     { visit about_path }
+    let(:heading)     { 'About' }
+    let(:page_title)  { 'About' }
 
-    it "should have the content 'About'" do
-      expect(page).to have_content('About')
-    end
-    it "should have a title" do
-      expect(page).to have_title("#{base_title} | About")
-    end
+    it_should_behave_like 'all static pages'
   end
 
   describe 'Contact' do
-    before(:each) { visit '/contact' }
+    before(:each)     { visit contact_path  }
+    let(:heading)     { 'Contact us' }
+    let(:page_title)  { 'Contact' }
 
-    it "should have the content 'Contact us'" do
-      expect(page).to have_content 'Contact us'
-    end
-
-    it 'should have a title' do
-      expect(page).to have_title("#{base_title} | Contact")
-    end
+    it_should_behave_like 'all static pages'
   end
 
+  it "should test the links of nav in header and footer" do
+    visit root_path
+    click_link "About"
+    expect(page).to have_title(full_title('About'))
+    click_link "Help"
+    expect(page).to have_title(full_title('Help'))
+    click_link "Contact"
+    expect(page).to have_title(full_title('Contact'))
+    click_link "Home"
+    expect(page).to have_title(full_title(''))
+    click_link "Sign up"
+    expect(page).to have_title(full_title('Sign up'))
+  end
 end
