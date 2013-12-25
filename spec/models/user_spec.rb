@@ -45,7 +45,7 @@ describe User do
     end
   end
 
-  describe 'email is already taken' do
+  describe "when email address is already taken" do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
