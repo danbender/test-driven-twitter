@@ -33,4 +33,8 @@ TddTwitter::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+
+  # Redefining Bcrypt cost factor in test environment.
+  ActiveModel::SecurePassword.min_cost = true
 end
