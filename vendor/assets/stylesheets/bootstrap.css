@@ -7116,3 +7116,12 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
+/* Custom add */
+
+@media screen and (max-width : 768px) {
+  .pull-right {
+    float: left !important;
+  }
+}
