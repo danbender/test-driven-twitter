@@ -50,13 +50,22 @@ describe User do
     end
   end
 
-  describe 'email address is already take' do
+  describe 'email address is already taken' do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
     end
     it { should_not be_valid }
+  end
+
+  describe 'email with mixed case' do
+    let(:mixed_case_mail) { "MaIL@ExamPLE.cOm" }
+    it 'should be saved as all lower-case' do
+      @user.email = mixed_case_mail
+      @user.save
+      expect(@user.reload.email).to eq mixed_case_mail.downcase
+    end
   end
 
   describe 'password is not present' do
