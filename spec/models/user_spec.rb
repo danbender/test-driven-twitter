@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe User do
-  before(:each) { @user = User.new(name: 'test user', email: 'mail@example.com')}
+  before(:each) { @user = User.new(name: 'test user', email: 'mail@example.com', password: 'helloworld', password_confirmation: 'helloworld')}
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
 
   # sanity check
   it { should be_valid }
@@ -46,12 +48,26 @@ describe User do
     end
   end
 
-  describe "when email address is already taken" do
+  describe 'email address is already take' do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
     end
     it { should_not be_valid }
+  end
+
+  describe 'password is not present' do
+    before do
+      @user = User.new(name: "Example User", email: "user@example.com", password: '', password_confirmation: '')
+    end
+    it { should_not be_valid }
+  end
+
+  describe 'password confirmation does not match password' do
+    before { @user.password_confirmation = 'idonotmatch'}
+    it {should_not be_valid }
+    # the case of matching pw already covered by it { should be_valid }
+    # so only need to test for mismatch!
   end
 end
