@@ -17,4 +17,16 @@ describe 'UserPages' do
     it { should have_title(full_title(user.name)) }
     it { should have_content(user.name) }
   end
+
+  describe 'signup page' do
+    before { visit signup_path }
+    let(:submit) { 'Create my account' }
+
+    describe 'with invalid information' do
+      it 'should not create a user' do
+        expect { click_button submit }.not_to change(User, :count)
+      end
+    end
+
+  end
 end
