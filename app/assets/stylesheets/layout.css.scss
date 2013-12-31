@@ -2,6 +2,16 @@
   margin-top: 5em;
 }
 
+input, textarea, select {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
