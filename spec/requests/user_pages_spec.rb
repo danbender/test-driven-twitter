@@ -30,8 +30,8 @@ describe 'UserPages' do
 
     describe 'with valid information' do
       before do
-        fill_in 'Name',                   with: 'Example user'
-        fill_in 'Email',                  with: 'user@example.com'
+        fill_in 'Name',                   with: 'dan'
+        fill_in 'Email',                  with: 'dan@test.com'
         fill_in 'Password',               with: 'test12345'
         fill_in 'Password confirmation',  with: 'test12345'
       end
@@ -45,6 +45,12 @@ describe 'UserPages' do
       it { should have_content 'Sign up'}
       it { should have_content 'The form contains'}
       it { should have_content 'error'}
+    end
+
+    describe 'after saving the user' do
+      before { click_button submit }
+      let(:user) { User.find_by(email: 'dan@test.com') }
+      it { should have_content('dan') }
     end
   end
 end
