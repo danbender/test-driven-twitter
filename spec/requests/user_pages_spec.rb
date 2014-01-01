@@ -18,7 +18,7 @@ describe 'UserPages' do
     it { should have_content(user.name) }
   end
 
-  describe 'signup page' do
+  describe 'signup' do
     before { visit signup_path }
     let(:submit) { 'Create my account' }
 
@@ -51,6 +51,7 @@ describe 'UserPages' do
       before { click_button submit }
       let(:user) { User.find_by(email: 'dan@test.com') }
       it { should have_content('dan') }
+      it { should have_selector('div.alert.alert-success', text: 'Welcome.') }
     end
   end
 end
