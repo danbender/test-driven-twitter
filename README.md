@@ -1,9 +1,17 @@
 Test-Driven Twitter
 ===================
-TDD of a micro-blogging site like Twitter. User authorization and user authentication are built from scratch.
+TDD of a micro-blogging site like Twitter.
+View it [here](http://tdd-twitter.herokuapp.com/)
 
-View it here: [website]
+* User authorization and user authentication built from scratch
+* Fully responsive
+
+## Dependencies
+* Rails 4
+* Bootstrap 3
+* Sass
+* Rspec, Capybara
 
 
 
-![image name](http://imageishere)
+<!-- ![image name](http://imageishere) -->
