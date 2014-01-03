@@ -9,9 +9,8 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
-
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-
   # sanity check
   it { should be_valid }
 
@@ -101,5 +100,14 @@ describe User do
       specify { expect(user_for_invalid_password).to be_false }
       # specify is synonym for it
     end
+  end
+
+  describe 'remember_token' do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+    # its method, which is like it but applies the subsequent test to the given attribute rather than the subject of the test.
+    # its(:remember_token) { should_not be_blank }
+    # equivalent to
+    # it { expect(@user.remember_token).not_to be_blank }
   end
 end
