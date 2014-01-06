@@ -1,0 +1,15 @@
+<%= provide :title, "Edit user" %>
+
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-3"> <!-- col-sm-offset-4 -->
+    <%= form_for @user do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails">change</a>
+  </div>
+</div>
