@@ -15,8 +15,8 @@ describe "UserPages" do
     it { should have_content('All users') }
 
     it "should list all users" do
-      User.all each do |user|
-        expect(page).to have_selector("li", test: user.name)
+      User.all.each do |user|
+        expect(page).to have_selector("li", text: user.name)
       end
     end
   end
