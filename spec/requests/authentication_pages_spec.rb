@@ -42,9 +42,16 @@ describe "Authentication" do
       it { should have_link('Sign out',    href: signout_path) }
       it { should_not have_link('Sign in', href: signin_path) }
 
+      describe "when signed in it should not show sign up" do
+      before { visit root_path}
+      it { should_not have_link('Sign up', href: signup_path) }
+      end
+
       describe "followed by signout" do
         before { click_link "Sign out" }
         it { should have_link('Sign in') }
+        it { should_not have_link('Profile') }
+        it { should_not have_link('Settings') }
       end
     end
   end
