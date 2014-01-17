@@ -12,7 +12,4 @@ View it [here](https://tdd-twitter.herokuapp.com/).
 * Sass
 * Rspec, Capybara
 
-// spec not running
-
-
 <!-- ![image name](http://imageishere) -->
