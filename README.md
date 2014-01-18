@@ -11,8 +11,3 @@ View it [here](https://tdd-twitter.herokuapp.com/).
 * Bootstrap 3
 * Sass
 * Rspec, Capybara
-
-// spec not running
-
-
-<!-- ![image name](http://imageishere) -->
