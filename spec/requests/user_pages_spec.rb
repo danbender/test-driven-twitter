@@ -66,7 +66,7 @@ describe "UserPages" do
     it { should have_title(full_title(user.name)) }
     it { should have_content(user.name) }
 
-g    describe "tweets" do
+    describe "tweets" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
