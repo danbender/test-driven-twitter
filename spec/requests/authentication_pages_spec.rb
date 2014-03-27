@@ -78,7 +78,7 @@ describe "Authentication" do
             before do
               visit root_path
               click_link('Sign out')
-              # alternatively: rCapybara.current_session.driver.delete signout_path
+              # alternatively: Capybara.current_session.driver.delete signout_path
               visit signin_path
               fill_in "Email",    with: user.email
               fill_in "Password", with: user.password
@@ -106,6 +106,19 @@ describe "Authentication" do
         describe "visiting the user index" do
           before { visit users_path }
           it { should have_title("Sign in") }
+        end
+      end
+
+      describe "in the Tweets controller" do
+
+        describe "submitting to create action" do
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { expect(response).to redirect_to(signin_path) }
         end
       end
     end
