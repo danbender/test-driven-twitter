@@ -5,5 +5,5 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    endg
+  end
 end
