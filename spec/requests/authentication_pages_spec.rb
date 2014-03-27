@@ -78,7 +78,7 @@ describe "Authentication" do
             before do
               visit root_path
               click_link('Sign out')
-              # alternatively: rCapybara.current_session.driver.delete signout_path
+              # alternatively: Capybara.current_session.driver.delete signout_path
               visit signin_path
               fill_in "Email",    with: user.email
               fill_in "Password", with: user.password
