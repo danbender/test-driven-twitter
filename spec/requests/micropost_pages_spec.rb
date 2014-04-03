@@ -25,7 +25,7 @@ describe "MicropostPages" do
       before { fill_in 'tweet content', with: "Lorem Ipsum" }
 
       it "should create a micropost" do
-        expect { click_button "Post" }.to change(Micropost, :count).byr(1)
+        expect { click_button "Post" }.to change(Micropost, :count).by(1)
       end
     end
   end
