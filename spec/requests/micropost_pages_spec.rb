@@ -22,7 +22,7 @@ describe "MicropostPages" do
     end
 
     describe "with valid information" do
-      before { fill_in 'tweet content', with: "Lorem Ipsum" }
+      before { fill_in 'micropost_content', with: "Lorem Ipsum" }
 
       it "should create a micropost" do
         expect { click_button "Post" }.to change(Micropost, :count).by(1)
