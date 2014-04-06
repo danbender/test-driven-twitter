@@ -25,7 +25,7 @@ describe 'StaticPages' do
         visit root_path
       end
 
-      it "should render the user's feed" do
+      it "should render a user's feed" do
         user.feed.each do |item|
           expect(page).to have_selector("li##{item.id}", text: item.content)
         end
