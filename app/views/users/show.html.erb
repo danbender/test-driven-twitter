@@ -2,11 +2,16 @@
 
 <div class="row">
   <aside class="col-md-2">
-    <h1><%= gravatar_for @user %></h1>
-    <h1><%= @user.name %></h1>
+    <section>
+      <h1><%= gravatar_for @user %></h1>
+      <h1><%= @user.name %></h1>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
-
   <div class="col-md-10">
+    <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
       <h3>Tweets (<%= @user.microposts.count %>)</h3>
       <ol class='microposts'>
