@@ -113,7 +113,7 @@ describe "Authentication" do
           it { should have_title('Sign in') }
         end
 
-        describe 'visiting the folloers page' do
+        describe "visiting the followers page" do
           before { visit followers_user_path(user) }
           it { should have_title('Sign in') }
         end
