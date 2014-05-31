@@ -135,7 +135,7 @@ describe "Authentication" do
       describe "in the Relationships controller" do
         describe "submitting to the create action" do
           before { post relationships_path }
-          specify { expect(response).to redirect_to(sign_in path) }
+          specify { expect(response).to redirect_to(signin_path) }
         end
 
         describe "submitting to the destroy action" do
