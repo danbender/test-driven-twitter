@@ -3,7 +3,7 @@
 
   <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
+    <aside class="col-md-3">
       <section>
         <%= render 'shared/user_info' %>
       </section>
@@ -15,7 +15,7 @@
       </section>
     </aside>
 
-    <div class="span8">
+    <div class="col-md-9">
       <h3>Micropost Feed:</h3>
       <%= render 'shared/feed' %>
     </div>
