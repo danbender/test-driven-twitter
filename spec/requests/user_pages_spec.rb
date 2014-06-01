@@ -76,23 +76,26 @@ describe "UserPages" do
       let(:other_user) { FactoryGirl.create(:user) }
       before { sign_in user }
 
-      it "should increment the followed user count" do
-        expect do
-          click_button "Follow"
-        end.to change(user.followed_users, :count).by(1)
-      end
+      describe "following a user" do
+        before { visit user_path(other_user) }
 
-      it "should incremement the other user's followers count" do
-        expect do
-          click_button "Follow"
-        end.to change(other_user.followers, :count).by(1)
-      end
+        it "should increment the followed user count" do
+          expect do
+            click_button "Follow"
+          end.to change(user.followed_users, :count).by(1)
+        end
 
-      describe "toggline the button" do
-        before { click_button "Follow" }
-        it { should have_xpath("//input[@value='Unfollow']") }
-      end
+        it "should incremement the other user's followers count" do
+          expect do
+            click_button "Follow"
+          end.to change(other_user.followers, :count).by(1)
+        end
 
+        describe "toggline the button" do
+          before { click_button "Follow" }
+          it { should have_xpath("//input[@value='Unfollow']") }
+        end
+      end
       describe "unfollowing a user" do
         before do
           user.follow!(other_user)
